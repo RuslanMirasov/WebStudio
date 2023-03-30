@@ -1,0 +1,45 @@
+/*----------------------- SECTION TEAM*/
+
+.section--team {
+   background: var(--cloud-color);
+}
+
+.team {
+   display: flex;
+   flex-wrap: wrap;
+   margin-top: -12px;
+   margin-bottom: -12px;
+}
+
+.team__card {
+   width: calc((100% - 24px * 3) / 4);
+   margin-right: 24px;
+   margin-top: 12px;
+   margin-bottom: 12px;
+   text-align: center;
+
+   background: var(--white-color);
+   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+   border-radius: 0px 0px 4px 4px;
+}
+
+.team__card:nth-child(4n) {
+   margin-right: 0px;
+}
+
+.team__card img {
+   display: block;
+   max-width: 100%;
+}
+
+.card-text {
+   padding: 32px 16px;
+}
+
+.card-text>* {
+   margin-bottom: 8px;
+}
+
+.card-text>*:last-child {
+   margin-bottom: 0px;
+}
