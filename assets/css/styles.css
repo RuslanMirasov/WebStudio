@@ -33,12 +33,26 @@ ul {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--slate-color);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+body.lock {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.main {
+  padding-top: 73px;
 }
 
 .list {
@@ -48,20 +62,6 @@ body {
 .link {
   text-decoration: none;
   outline: none;
-}
-
-.app {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-.app.body--overflow {
-  position: absolute;
-  overflow: hidden;
-}
-
-.body {
-  position: relative;
 }
 
 .container {
@@ -255,8 +255,7 @@ body {
   fill: var(--iris-color);
 }
 
-.input:focus,
-.footer .input:focus {
+.input:focus {
   border: 1px solid var(--iris-color);
 }
 
@@ -339,6 +338,10 @@ body {
 
 /*----------------------- HEADER*/
 .header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
   background: var(--white-color);
   border-bottom: 1px solid var(--cornflower-color);
   z-index: 10;
@@ -389,6 +392,12 @@ body {
   color: var(--navy-blue-color);
   outline: none;
   position: relative;
+  transition: color 250ms var(--cubic);
+}
+.header__menu .link:hover, .header__menu .link:focus,
+.header__contacts .link:hover,
+.header__contacts .link:focus {
+  color: var(--ocean-color);
 }
 
 .header__menu .link {
@@ -410,9 +419,6 @@ body {
 }
 .header__menu .link.active:after {
   opacity: 1;
-}
-.header__menu .link:hover, .header__menu .link:focus {
-  color: var(--ocean-color);
 }
 
 .header__contacts .linl {
@@ -690,33 +696,43 @@ body {
 
 /*-------------------- MODAL POPUP*/
 .backdrop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
-  overflow-x: hidden;
-  overflow-y: scroll;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background: var(--navy-blue-modal-color);
   opacity: 1;
-  padding: 96px 18px;
   visibility: visible;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s, visibility 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   z-index: 99;
 }
-
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s, visibility 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
-
 .backdrop.is-hidden .popup {
   transform: translate(0px, 20px);
+}
+.backdrop .popup__body {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 18px;
+  position: relative;
+}
+.backdrop .popup__body .close_area {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 }
 
 .popup {
@@ -810,6 +826,9 @@ body {
 .footer .form .input {
   color: var(--white-color);
   border: 1px solid var(--white-color);
+}
+.footer .form .input:focus {
+  border: 1px solid var(--iris-color);
 }
 .footer .form .input::-moz-placeholder {
   color: var(--white-color);

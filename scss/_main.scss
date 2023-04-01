@@ -30,13 +30,28 @@ ul {
    margin: 0;
 }
 body {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 100%;
    font-family: 'Roboto', sans-serif;
    font-weight: normal;
    font-size: 16px;
    line-height: 1.5;
    letter-spacing: 0.02em;
    color: var(--slate-color);
+   overflow-x: hidden;
+   overflow-y: scroll;
+   &.lock {
+      overflow-x: hidden; 
+      overflow-y: hidden; 
+   }
 }
+
+.main{
+   padding-top: 73px;
+}
+
 .list {
    list-style: none;
 }
@@ -44,18 +59,7 @@ body {
    text-decoration: none;
    outline: none;
 }
-.app {
-   width: 100%;
-   height:100vh;
-   position: relative;
-   &.body--overflow {
-      position: absolute;
-      overflow: hidden;
-   }
-}
-.body{
-   position: relative;
-}
+
 .container {
    max-width: 428px;
    margin: 0 auto;
@@ -243,8 +247,7 @@ body {
    fill: var(--iris-color);
 }
 
-.input:focus,
-.footer .input:focus {
+.input:focus {
    border: 1px solid var(--iris-color);
 }
 
