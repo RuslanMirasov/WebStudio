@@ -53,6 +53,7 @@ body {
 .main{
    width: 100%;
    padding-top: 72px;
+   overflow-x: hidden;
 }
 
 .list {
@@ -64,10 +65,12 @@ body {
 }
 
 .container {
-   max-width: 428px;
    margin: 0 auto;
    padding: 0px 15px;
-   @media screen and (min-width:768px) {
+   @media screen and (max-width:767px) {
+      max-width: 428px;
+   }
+   @media screen and (min-width:768px) and (max-width:1199px){
       max-width: 768px;
    }
    @media screen and (min-width:1200px) {
@@ -75,7 +78,13 @@ body {
    }
 }
 .section {
-   padding: 120px 0px; 
+   @media screen and (max-width:1199px) {
+      padding: 96px 0px;
+   }
+
+   @media screen and (min-width:1200px) {
+      padding: 120px 0px;
+   }
 }
 
 /*----------------------- BUTTONS*/
@@ -220,7 +229,6 @@ body {
 .input {
    display: inline-block;
    width: 100%;
-   min-width: 264px;
    border: 1px solid var(--navy-blue-modal-color);
    border-radius: 4px;
    font-size: 12px;

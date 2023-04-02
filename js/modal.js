@@ -26,9 +26,6 @@
     setTimeout(function () {
       bodyPaddingToggle();
     }, 250);
-    setTimeout(function () {
-      refs.body.scrollTo({ top: 1500, behavior: 'smooth' });
-    }, 2000);
   }
 
   function toggleModal() {
@@ -40,15 +37,15 @@
 
   function bodyPaddingToggle() {
     refs.body.classList.toggle("lock");
-      refs.modalPaddingElements.forEach(modalPaddingElements => {
-        if (refs.body.classList.contains('lock')) {
-          refs.body.style.paddingRight = refs.bodyPadding + 'px';
-          modalPaddingElements.style.paddingRight = refs.bodyPadding + 'px';
-        }
-        else {
-          refs.body.style.paddingRight = '0px';
-          modalPaddingElements.style.paddingRight = '0px';
-        }
+    refs.modalPaddingElements.forEach(modalPaddingElements => {
+      if (refs.body.classList.contains('lock')) {
+        refs.body.style.paddingRight = refs.bodyPadding + 'px';
+        modalPaddingElements.style.paddingRight = refs.bodyPadding + 'px';
+      }
+      else {
+        refs.body.style.paddingRight = '0px';
+        modalPaddingElements.style.paddingRight = '0px';
+      }
     });
   }
 
