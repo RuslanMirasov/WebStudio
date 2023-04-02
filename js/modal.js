@@ -9,30 +9,47 @@
   };
 
   refs.openModalBtn.forEach(modalBtn => {
-    modalBtn.addEventListener("click", toggleModal);
+    modalBtn.addEventListener("click", modalOpen);
   });
   
   refs.closeModalBtn.forEach(closelBtn => {
-    closelBtn.addEventListener("click", toggleModal);
+    closelBtn.addEventListener("click", modalClose);
   });
+
+  function modalOpen() {
+    toggleModal();
+    bodyPaddingToggle();
+  }
+
+  function modalClose() {
+    toggleModal();
+    setTimeout(function () {
+      bodyPaddingToggle();
+    }, 250);
+    setTimeout(function () {
+      refs.body.scrollTo({ top: 1500, behavior: 'smooth' });
+    }, 2000);
+  }
 
   function toggleModal() {
     refs.modal.forEach(modalClass => {
+      modalClass.scrollTo({ top: 0, behavior: 'smooth' });
       modalClass.classList.toggle("is-hidden");
     });
-    refs.body.classList.toggle("lock");
-    bodyPaddingToggle();
   }
+
   function bodyPaddingToggle() {
-    refs.modalPaddingElements.forEach(modalPaddingElements => {
-      if (refs.body.classList.contains('lock')) {
-        refs.body.style.paddingRight = refs.bodyPadding + 'px';
-        modalPaddingElements.style.paddingRight = refs.bodyPadding + 'px';
-      }
-      else {
-        refs.body.style.paddingRight = '0px';
-        modalPaddingElements.style.paddingRight = '0px';
-      }
+    refs.body.classList.toggle("lock");
+      refs.modalPaddingElements.forEach(modalPaddingElements => {
+        if (refs.body.classList.contains('lock')) {
+          refs.body.style.paddingRight = refs.bodyPadding + 'px';
+          modalPaddingElements.style.paddingRight = refs.bodyPadding + 'px';
+        }
+        else {
+          refs.body.style.paddingRight = '0px';
+          modalPaddingElements.style.paddingRight = '0px';
+        }
     });
   }
+
 })();
