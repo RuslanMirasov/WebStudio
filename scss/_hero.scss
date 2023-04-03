@@ -3,7 +3,7 @@
 .section--hero {
    padding: 188px 0px;
    background: var(--navy-blue-color);
-   background: linear-gradient(90deg, rgba(46, 47, 66, 0.7) 0%, rgba(46, 47, 66, 0.7) 100%), url('../../images/hero.jpg'), var(--navy-blue-color);
+   background: linear-gradient(90deg, rgba(46, 47, 66, 0.7) 0%, rgba(46, 47, 66, 0.7) 100%), url('../images/hero.jpg'), var(--navy-blue-color);
    background-repeat: no-repeat;
    background-position: center;
    background-size: cover;

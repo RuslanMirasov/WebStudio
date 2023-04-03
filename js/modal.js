@@ -12,8 +12,8 @@
     modalBtn.addEventListener("click", modalOpen);
   });
   
-  refs.closeModalBtn.forEach(closelBtn => {
-    closelBtn.addEventListener("click", modalClose);
+  refs.closeModalBtn.forEach(closeBtn => {
+    closeBtn.addEventListener("click", modalClose);
   });
 
   function modalOpen() {
