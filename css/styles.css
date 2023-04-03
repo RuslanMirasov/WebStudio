@@ -518,6 +518,7 @@ body.lock {
   width: 32px;
   height: 22px;
   z-index: 5;
+  background: none;
 }
 @media screen and (max-width: 767px) {
   .burger {
@@ -542,6 +543,34 @@ body.lock {
   display: block;
 }
 
+.menu-backdrop {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--navy-blue-modal-color);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 600ms var(--cubic), visibility 600ms var(--cubic);
+}
+@media screen and (max-width: 767px) {
+  .menu-backdrop {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+.menu-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.menu-backdrop.is-open .menu-wrapper {
+  transform: translate(0%, 0%);
+}
+
 .menu-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -552,19 +581,14 @@ body.lock {
   top: 0px;
   width: 100%;
   max-width: 428px;
-  height: 100vh;
+  height: auto;
+  min-height: 100%;
   padding: 80px 40px 40px 40px;
   z-index: 2;
   background: var(--white-color);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
   transform: translate(101%, 0%);
   transition: transform 600ms var(--cubic);
-}
-@media screen and (max-width: 767px) {
-  .menu-wrapper {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
 }
 .menu-wrapper .socials {
   justify-content: space-between;
@@ -577,9 +601,6 @@ body.lock {
   position: absolute;
   right: 24px;
   top: 24px;
-}
-.menu-wrapper.is-open {
-  transform: translate(0%, 0%);
 }
 
 /*----------------------- SECTION HERO*/
@@ -908,7 +929,8 @@ body.lock {
   padding: 18px;
   position: relative;
 }
-.backdrop .popup__body .close_area {
+
+.close_area {
   position: absolute;
   left: 0px;
   right: 0px;

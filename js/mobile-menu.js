@@ -2,7 +2,7 @@
   const menuVars = {
     openMenuBtn: document.querySelectorAll("[data-menu-open]"),
     closeMenuBtn: document.querySelectorAll("[data-menu-close]"),
-    menu: document.querySelectorAll(".menu-wrapper"),
+    menu: document.querySelector(".menu-backdrop"),
     burger: document.querySelector(".burger"),
     modalPaddingElements: [].filter.call(document.all, e => getComputedStyle(e).position == 'fixed'),
     body: document.querySelector(".body"),
@@ -30,10 +30,7 @@
    }   
    
    function toggleMenu() {
-    menuVars.menu.forEach(menuClass => {
-      menuClass.scrollTo({ top: 0, behavior: 'smooth' });
-      menuClass.classList.toggle("is-open");
-    });
+     menuVars.menu.classList.toggle("is-open");
      menuVars.burger.classList.toggle("is-open");
   }  
 
