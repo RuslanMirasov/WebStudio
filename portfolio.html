@@ -10,29 +10,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Portfolio</title>
   </head>
-  <body>
+  <body class="body" data-modal-padding>
     <!--header-->
-    <header class="header">
+    <header class="header" data-modal-padding>
       <div class="container">
-        <nav class="header__navigation">
-          <a href="./index.html" class="logo link">Web<span class="invers_color">Studio</span></a>
-          <ul class="header__menu list">
-            <li><a href="./index.html" class="link">Studio</a></li>
-            <li><a href="./portfolio.html" class="link active">Portfolio</a></li>
-            <li><a href="" class="link">Contacts</a></li>
-          </ul>
-        </nav>
-        <address class="address">
-          <ul class="header__contacts list">
-            <li><a href="mailto:info@devstudio.com" class="link">info@devstudio.com</a></li>
-            <li><a href="tel:+110001111111" class="link">+11 (000) 111-11-11</a></li>
-          </ul>
-        </address>
+        <a href="./index.html" class="logo link">Web<span class="invers_color">Studio</span></a>
+
+        <div class="menu-backdrop">
+          <div class="close_area" data-menu-close></div>
+          <div class="menu-wrapper">
+            <!-- menu -->
+            <nav class="header__nav">
+              <ul class="header__menu list">
+                <li><a href="./index.html" class="link">Studio</a></li>
+                <li><a href="./portfolio.html" class="link active">Portfolio</a></li>
+                <li><a href="" class="link">Contacts</a></li>
+              </ul>
+            </nav>
+            <!-- menu end-->
+
+            <!-- address -->
+            <address class="address">
+              <ul class="header__contacts list">
+                <li><a href="mailto:info@devstudio.com" class="link">info@devstudio.com</a></li>
+                <li><a href="tel:+110001111111" class="link">+11 (000) 111-11-11</a></li>
+              </ul>
+              <ul class="socials list">
+                <li class="socials__item">
+                  <a href="#" class="link" target="_blank">
+                    <svg width="16" height="16"><use href="./images/icons.svg#instagram"></use></svg>
+                  </a>
+                </li>
+                <li class="socials__item">
+                  <a href="#" class="link" target="_blank">
+                    <svg width="16" height="16"><use href="./images/icons.svg#twitter"></use></svg>
+                  </a>
+                </li>
+                <li class="socials__item">
+                  <a href="#" class="link" target="_blank">
+                    <svg width="16" height="16"><use href="./images/icons.svg#facebook"></use></svg>
+                  </a>
+                </li>
+                <li class="socials__item">
+                  <a href="#" class="link" target="_blank">
+                    <svg width="16" height="16"><use href="./images/icons.svg#linkedin"></use></svg>
+                  </a>
+                </li>
+              </ul>
+            </address>
+            <!-- address end-->
+          </div>
+        </div>
+
+        <!-- burger button -->
+        <button class="burger" data-menu-open>
+          <svg width="32" height="24">
+            <use href="./images/icons.svg#burger" class="icon--off"></use>
+            <use href="./images/icons.svg#menuClose" class="icon--on"></use>
+          </svg>
+        </button>
+        <!-- burger button end-->
       </div>
     </header>
+    <!--header end-->
 
     <!--main-->
     <main class="main">
