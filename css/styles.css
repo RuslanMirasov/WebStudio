@@ -550,8 +550,8 @@ body.lock {
 
 /*----------------------- SECTION SERVICES*/
 
-.section--services {
-  padding-top: 0px;
+.section.section--services {
+  padding-top: 20px;
 }
 
 .services {
