@@ -1027,18 +1027,42 @@ body.lock {
 }
 
 /*----------------------- SECTION PORTFOLIO*/
-.section--portfolio {
-  padding-top: 96px;
+@media screen and (max-width: 767px) {
+  .section--portfolio {
+    padding: 48px 0px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .section--portfolio {
+    padding: 64px 0px 96px 0px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .section--portfolio {
+    padding: 100px 0px 120px 0px;
+  }
 }
 
 .portfolio-filter {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 72px;
+  margin: -8px 0px;
+  margin-bottom: 48px;
+}
+@media screen and (max-width: 767px) {
+  .portfolio-filter {
+    justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 768px) {
+  .portfolio-filter {
+    justify-content: center;
+  }
 }
 
 .portfolio-filter__item {
+  margin-top: 8px;
+  margin-bottom: 8px;
   margin-right: 24px;
 }
 
@@ -1053,15 +1077,56 @@ body.lock {
 .portfolio {
   display: flex;
   flex-wrap: wrap;
-  margin-top: -24px;
-  margin-bottom: -24px;
+}
+@media screen and (max-width: 767px) {
+  .portfolio {
+    max-width: 396px;
+    margin: -24px auto;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .portfolio {
+    max-width: 736px;
+    margin: -36px auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .portfolio {
+    margin: -24px auto;
+  }
 }
 
-.portfolio__card {
-  width: calc((100% - 48px) / 3);
-  margin-right: 24px;
-  margin-top: 24px;
-  margin-bottom: 24px;
+@media screen and (max-width: 767px) {
+  .portfolio__card {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .portfolio__card {
+    margin-right: 24px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .portfolio__card {
+    width: calc((100% - 24px) / 2);
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+  .portfolio__card:nth-child(2n) {
+    margin-right: 0px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .portfolio__card {
+    width: calc((100% - 48px) / 3);
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .portfolio__card:nth-child(3n) {
+    margin-right: 0px;
+  }
 }
 
 .portfolio__card .link {
@@ -1083,11 +1148,8 @@ body.lock {
 
 .portfolio__card img {
   display: block;
-  max-width: 100%;
-}
-
-.portfolio__card:nth-child(3n) {
-  margin-right: 0px;
+  width: 100%;
+  height: auto;
 }
 
 .portfolio__thumb {
